@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    # ⚠️ Forcing serverTimezone to Asia/Kolkata resolves handshake discrepancies
+    url: jdbc:mysql://localhost:3307/localdb?useSSL=false&serverTimezone=Asia/Kolkata&allowPublicKeyRetrieval=true
+    username: user
+    password: password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+connector:
+  job-name: local-mysql-export
+  source:
+    type: jdbc-mysql  # ⚠️ Point to the MySQL bean
+    table: products
+    fetch-size: 1000
+  target:
+    type: local-json-writer # ⚠️ Swapped plugin from 'local-csv-writer' to 'local-json-writer'
+    output-dir: C:/Project/SpringBoot/my_received_data/Connector_FrameWork1/MYSQL/output
+  checkpoint:
+    directory:  C:/Project/SpringBoot/my_received_data/Connector_FrameWork1/MYSQL/checkpoints

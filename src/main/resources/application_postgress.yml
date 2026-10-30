@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/localdb?options=-c%20TimeZone=Asia/Kolkata
+    username: user
+    password: password
+    driver-class-name: org.postgresql.Driver
+
+connector:
+  job-name: local-postgres-export
+  source:
+    type: jdbc-postgres
+    table: products
+    fetch-size: 1000
+  target:
+    type: local-csv-writer
+    output-dir: C:/Java_Learn/Springboot/Connector_FrameWork/Postgress/output
+  checkpoint:
+    directory:  C:/Java_Learn/Springboot/Connector_FrameWork/Postgress/checkpoints

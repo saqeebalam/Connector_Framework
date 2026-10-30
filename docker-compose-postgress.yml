@@ -1,0 +1,13 @@
+# docker-compose-postgress.yml
+version: '3.8'
+services:
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: localdb
+    ports:
+      - "5432:5432" # Exposes the container's port 5432 to your local machine
+    volumes:
+      - ./init-db/postgres:/docker-entrypoint-initdb.d
