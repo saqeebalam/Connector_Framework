@@ -89,8 +89,3 @@ run DemoApplication.java
 
 ```
 
-## Document
-
-```url
-https://amedeloitte.sharepoint.com/:u:/r/sites/FedExTransformationTeam/Shared%20Documents/General/Java%20Backend/java-connector-frameworks.html?d=wd1cc1cd374a44249bdcdf9c32848dc64&csf=1&web=1
-```
