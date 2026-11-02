@@ -89,3 +89,22 @@ run DemoApplication.java
 
 ```
 
+
+## Architectural Design
+
+``` text
+[ Data Sources ]             [ Unified Engine ]             [ Target Destinations ]
+
+ ┌────────────┐                                              ┌─────────────────────┐
+ │   MySQL    ├──┐                                        ┌─►│  Files (CSV,JSON...)│
+ ├────────────┤  │                                        │  └─────────────────────┘
+ │ PostgreSQL ├──┼─► ┌───────────────────────────┐ ───────┼─►│ Database Target │
+ ├────────────┤  │   │                           │        │  │  (Data Warehouse)
+ │   Oracle   ├──┼──►│ Java Connector Framework  │────────┼─►│   Data Lake     │
+ ├────────────┤  │   │  (Spring Boot & Docker)   │        │  └─────────────────┘
+ │ SQL Server ├──┘   └───────────────────────────┘        └─►│  Message Queue  │
+ ├────────────┤                                              └─────────────────┘
+ │    etc     │
+ └────────────┘                                              
+
+```
